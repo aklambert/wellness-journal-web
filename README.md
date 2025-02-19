@@ -16,7 +16,7 @@ This web version is being built with React Router, a Node.js server using Expres
 npm install
 ```
 
-#### Development
+### Development
 
 To start the development server on `http://localhost:5173`, in the root project directory run:
 
