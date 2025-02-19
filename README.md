@@ -1,100 +1,72 @@
-# Welcome to React Router!
+# Wellness Journal Web
+This is a web version of the [Wellness Journal](https://github.com/aklambert/Wellness-Journal) Android app. 
 
-A modern, production-ready template for building full-stack React applications using React Router.
+Wellness Journal is an app that has fitness features, journaling features, and a timer. It is meant to be an app that has both finess and journaling features in one app to help people track both their physical and mental health. 
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+This web version is being built with React Router, a Node.js server using Express, and an SQLite database. This project is currently in the early development stages.
 
-## Features
+# React Router
+[React Router docs](https://reactrouter.com/)
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+### Getting Started
 
-## Getting Started
-
-### Installation
-
-Install the dependencies:
+- Install the dependencies:
 
 ```bash
 npm install
 ```
 
-### Development
+#### Development
 
-Start the development server with HMR:
+To start the development server on `http://localhost:5173`, in the root project directory run:
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+# Express
+[Express docs](https://expressjs.com/)
 
-## Building for Production
+### Getting started
 
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-This template includes three Dockerfiles optimized for different package managers:
-
-- `Dockerfile` - for npm
-- `Dockerfile.pnpm` - for pnpm
-- `Dockerfile.bun` - for bun
-
-To build and run using Docker:
+- Navigate to the `server` directory
+- Install the dependencies:
 
 ```bash
-# For npm
-docker build -t my-app .
-
-# For pnpm
-docker build -f Dockerfile.pnpm -t my-app .
-
-# For bun
-docker build -f Dockerfile.bun -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
+npm install
 ```
 
-The containerized application can be deployed to any platform that supports Docker, including:
+- Create a `.env` file in the `server` directory. In the `.env` file, define a `PORT` variable to be the port you want to use for your Express server (i.e. `PORT=3000`)
+- Add the `.env` file to any necessary ignore files (i.e. `.gitignore`, `.dockerignore`, etc.)
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
+### Development
+To start the Express development server, in your terminal navigate to the `server` directory. Then, run:
 
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+```bash
+npm run server
 ```
 
-## Styling
+# SQLite
+[SQLite docs](https://www.sqlite.org/docs.html)
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+### Getting started
 
----
+- Navigate to `server/db`
+- Install sqlite3:
+  
+```bash
+npm install sqlite3
+```
+### Development
 
-Built with ❤️ using React Router.
+- To connect to your local instance of the database, in `server/db` run:
+
+```bash
+sqlite3 wellnessjournal_dev.db
+```
+- From there, you can run sqlite queries to work with the database
+
+# Styling
+
+## CSS Frameworks
+- [Tailwind CSS](https://tailwindcss.com/)
