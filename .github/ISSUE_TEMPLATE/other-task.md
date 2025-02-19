@@ -7,14 +7,14 @@ assignees: ''
 
 ---
 
-**Is this task related to a problem? If so, please describe the problem.**
+## Is this task related to a problem? If so, please describe the problem.
 A clear and concise description of what the problem is. (Ex. I'm always frustrated when [...]):
 
-**Describe the solution you'd like**
+## Describe the solution you'd like
 A clear and concise description of what you want to happen:
 
-**To do**
+## To do
 Add a checklist for what should happen:
 
-**Additional context**
+## Additional context
 Add any other context or screenshots about the task here:
