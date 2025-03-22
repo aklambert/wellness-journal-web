@@ -14,7 +14,6 @@ import Button from '~/components/Button';
 // React
 import { useState } from 'react';
 
-
 /**
  * Page showing either the create account or login form, depending on 
  * toggle switch selection
