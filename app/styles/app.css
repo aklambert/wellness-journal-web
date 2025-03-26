@@ -38,6 +38,12 @@ h1 {
   font-size: var(--text-4xl);
 }
 
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: var(--text-3xl);
+  }
+}
+
 /* Links */
 a {
   color: var(--color-primary);
