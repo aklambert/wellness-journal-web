@@ -1,0 +1,41 @@
+/* General inputs */ 
+input:focus {
+    outline: none;
+}
+
+.input-feedback {
+    font-size: .75rem;
+}
+
+/* Passwords */
+.password-eye {
+    position: absolute;
+    background-color: white;
+    right: 0;
+    margin: 1rem;
+}
+
+.password-eye:hover {
+    cursor: pointer;
+}
+
+.password-capslock {
+    position: absolute;
+    right: 0;
+    margin: 3rem;
+    background-color: white;
+}
+
+.password-option {
+    font-size: .75rem;
+}
+
+/* Inputs with textboxes */
+div.textbox:focus-within {
+    box-shadow: 0 0 8px  var(--color-secondary);
+}
+
+/* Checkboxes */
+input[type="checkbox"] {
+    accent-color: var(--color-secondary);
+}

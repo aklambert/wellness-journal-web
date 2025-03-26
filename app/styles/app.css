@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import "./input.css";
+
+@theme {
+  /* --- Typeography --- */
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: "Lora", "Times New Roman", Times, serif;
+
+  /* Colors */
+  --color-primary: #3941FF;
+  --color-secondary: #763DFF;
+
+  --color-CEDCFF: #CEDCFF;
+  --color-545454: #545454;
+  --color-333333: #333333;
+
+  /* --- Custom Background colors --- */
+  --bg-purple-radial-glow: radial-gradient(circle, #763DFF 0%, #4D33CB 33%, #242998 100%);
+}
+
+/* --- General HTML elements --- */
+html,
+body {
+  @apply bg-white dark:bg-gray-950;
+
+  font-family: var(--font-sans);
+  color: var(--color-333333);
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
+
+/* Headings */
+h1 {
+  font-family: var(--font-serif);
+  font-size: var(--text-4xl);
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+}
+
+a:hover {
+  color: var(--color-545454)
+}
+
+/* Buttons */
+button {
+  width: 160px;
+}
+
+button.primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+button.primary:hover {
+  background-color: var(--color-CEDCFF);
+  color: var(--color-333333);
+}
+
+/* --- Custom backgrounds --- */
+.bg-purple-radial {
+  background: var(--bg-purple-radial-glow);
+}
+
+.bg-slight-transparent {
+  background: rgba(255, 255, 255, 0.72);
+}
