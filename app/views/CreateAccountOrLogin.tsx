@@ -31,24 +31,25 @@ export function CreateAccountOrLogin()
   }
 
   return (
-    <main className="flex bg-purple-radial h-screen">
+    <main className="bg-purple-radial h-screen">
 
       {/* Begin grid template columns with 2 columns */}
-      <div className="grid grid-flow-col grid-cols-2 w-full">
+      <div className="bg-purple-radial grid grid-flow-row md!:grid-flow-col md:grid-cols-2">
 
         {/* Column 1 */}
-        <div className="flex flex-col items-center justify-center h-screen">
-          <div className='flex justify-center m-8'>
+        <div className="flex flex-col items-center pt-9 pb-4 md:justify-center md:h-screen">
+          <div className='flex justify-center md:m-8'>
             <img
+              className='w-16 md:w-40'
               src={wellnessJournalLogoLight}
               alt="Wellness Journal light logo"
             />
           </div>
 
-          <h1 className='text-white flex justify-center self-center m-8 font-bold'>{`${showLogin ? 'Welcome Back' : 'Welcome to Wellness Journal'}`}</h1>
+          <h1 className='text-white flex justify-center self-center text-center mt-4 md:m-8 font-bold'>{`${showLogin ? 'Welcome Back' : 'Welcome to Wellness Journal'}`}</h1>
 
-          <div className=' bg-white m-8 rounded-tl-lg rounded-br-lg'>
-            <p className='self-center p-8'>
+          <div className=' bg-white mx-8 my-4 md:m-8 rounded-tl-lg rounded-br-lg'>
+            <p className='self-center p-4 md:p-8'>
               Create custom workouts with ease in a calm, mindful environment 
               that integrates fitness tracking and mental wellness
             </p>
@@ -56,15 +57,17 @@ export function CreateAccountOrLogin()
         </div> {/* End column 1 */}
 
         {/* Column 2 */}
-        <div className="flex flex-col justify-center items-center bg-slight-transparent h-full">
-          <div className='flex justify-center m-8'>
-            <img
-              src={wellnessJournalFullLogo}
-              alt="Wellness Journal full logo"
-            />
-          </div> 
-          <form className={`${showLogin} ? 'login' : 'create-account'`}>
-            <ToggleSwitch onClick={handleShowLoginToggle} toggledOn={showLogin} className='m-8' option1='Create account' option2='Login'/>
+        <div className="flex flex-col md:justify-center items-center bg-slight-transparent">
+          <form className={` ${showLogin} ? 'login' : 'create-account'`}>
+            <div className='flex w-full'>
+              <img
+                className='hidden md:block'
+                src={wellnessJournalFullLogo}
+                alt="Wellness Journal full logo"
+              />
+            </div> 
+
+            <ToggleSwitch onClick={handleShowLoginToggle} toggledOn={showLogin} className='my-8' option1='Create account' option2='Login'/>
 
             <h1>{showLogin? 'Login' : 'Create Account'}</h1>
 

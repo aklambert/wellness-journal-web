@@ -10,7 +10,7 @@
 const Button = ({label, type, version}: {label: string, type: any, version: string}) => 
 {
     return (
-       <button className={`rounded-full cursor-pointer content-center px-4 h-12 mt-4 ${version}`} type={type}>{label}</button>
+       <button className={`rounded-full cursor-pointer content-center px-4 my-8 h-12 mt-4 ${version}`} type={type}>{label}</button>
     );
 };
 

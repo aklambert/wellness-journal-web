@@ -35,6 +35,12 @@ div.textbox:focus-within {
     box-shadow: 0 0 8px  var(--color-secondary);
 }
 
+@media only screen and(max-width: 768px) {
+    div.textbox {
+        margin: 0;
+    }
+}
+
 /* Checkboxes */
 input[type="checkbox"] {
     accent-color: var(--color-secondary);
