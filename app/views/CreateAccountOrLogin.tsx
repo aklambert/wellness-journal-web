@@ -74,6 +74,9 @@ export function CreateAccountOrLogin()
             <TextInput label='email' type="email" placeholder='Enter your email' />
             <PasswordInput feedback={`${showLogin ? '' : 'Enter a password of at least 15 characters'}`} label="Password" placeholder={`${showLogin ? 'Enter' : 'Create'} your password`} />
             
+            {/* Hidden input to track login vs signup */}
+            <input type='hidden' name='isLogin' value={showLogin ? 'true' : 'false'} />
+            
             { showLogin ? 
               // Show extra login options, if this is a returning user logging in
               <div>
