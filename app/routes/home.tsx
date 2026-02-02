@@ -8,7 +8,7 @@ export function meta({}: Route.MetaArgs)
       title: "Wellness Journal",
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
-    { name: "description", content: "Welcome to React Router!" },
+    { name: "description", content: "Welcome to Wellness Journal!" },
   ];
 }
 
