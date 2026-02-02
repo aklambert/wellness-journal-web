@@ -58,7 +58,7 @@ export function CreateAccountOrLogin()
 
         {/* Column 2 */}
         <div className="flex flex-col md:justify-center items-center bg-slight-transparent">
-          <form className={` ${showLogin} ? 'login' : 'create-account'`}>
+          <Form method="post" className={` ${showLogin ? 'login' : 'create-account'}`}>
             <div className='flex w-full'>
               <img
                 className='hidden md:block'
