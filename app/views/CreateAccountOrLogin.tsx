@@ -87,7 +87,7 @@ export function CreateAccountOrLogin()
               // Or just show the 'Create account' button for new users
             : <Button type='submit' label='Create account' version='primary' />}
 
-          </form>
+          </Form>
       </div>
       </div>
     </main>
