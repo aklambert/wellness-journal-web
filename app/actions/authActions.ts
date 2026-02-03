@@ -3,7 +3,7 @@
  * Handles form submissions for login and signup
  */
 
-export async function authAction({ request }) 
+export async function authAction({ request }: { request: Request }) 
 {
   if (request.method !== "POST") 
   {
@@ -37,6 +37,7 @@ export async function authAction({ request })
   } 
   catch (err) 
   {
-    return { error: "Server error - " + err.message };
+    const errorMessage = err instanceof Error ? err.message : "Unknown error";
+    return { error: "Server error - " + errorMessage };
   }
 }

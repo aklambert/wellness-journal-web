@@ -1,6 +1,6 @@
 import type { Route } from "./+types/home";
 import { CreateAccountOrLogin } from "~/views/CreateAccountOrLogin";
-import { authAction } from "~/actions/authActions.js";
+import { authAction } from "~/actions/authActions";
 
 export function meta({}: Route.MetaArgs) 
 {
