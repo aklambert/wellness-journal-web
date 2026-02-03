@@ -50,7 +50,7 @@ const PasswordInput = ({label, placeholder, feedback}: {label: string, placehold
             <label className="flex flex-col text-secondary">
                 {label}
                 <div className="mt-2 flex textbox items-center rounded select-none relative bg-white">
-                    <input type={`${showPassword? 'text' : 'password'}`} placeholder={placeholder} className="p-4 w-sm me-10 rounded text-black h-12 password"></input>
+                    <input type={`${showPassword? 'text' : 'password'}`} placeholder={placeholder} className="p-4 w-sm me-10 rounded text-black h-12 password" name={label.toLowerCase().replace(' ', '-')} />
                     {capsLockOn ? <IconLock className="password-capslock"/> : ''}
                     {showPassword ? <IconEye className="password-eye eye-open" onClick={handleShowPassword}/> : <IconEyeClosed onClick={handleShowPassword} className="password-eye eye-closed" />}
                 </div>
