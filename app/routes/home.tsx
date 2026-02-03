@@ -1,5 +1,6 @@
 import type { Route } from "./+types/home";
 import { CreateAccountOrLogin } from "~/views/CreateAccountOrLogin";
+import { authAction } from "~/actions/authActions.js";
 
 export function meta({}: Route.MetaArgs) 
 {
@@ -11,6 +12,10 @@ export function meta({}: Route.MetaArgs)
     { name: "description", content: "Welcome to Wellness Journal!" },
   ];
 }
+
+// ====== Actions ======
+// Handle login/create account form submission
+export { authAction as action };
 
 export default function Home() 
 {

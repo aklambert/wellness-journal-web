@@ -12,7 +12,8 @@ import Link from '~/components/Link';
 import Button from '~/components/Button';
 
 // React
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Form, useActionData } from 'react-router';
 
 /**
  * Page showing either the create account or login form, depending on 
@@ -23,12 +24,23 @@ import { useState } from 'react';
 export function CreateAccountOrLogin() 
 {
   const [showLogin, setShowLogin] = useState(false);
+  const actionData = useActionData();
 
   // Toggle between showing the 'Create Account' form and 'Login' form
   const handleShowLoginToggle = () => 
   {
     setShowLogin(!showLogin);
   }
+
+  // Handle successful login - store token and redirect
+  useEffect(() => {
+    if (actionData?.token) 
+    {
+      localStorage.setItem('authToken', actionData.token);
+      // TODO: Redirect to dashboard
+      window.location.href = '/dashboard';
+    }
+  }, [actionData]);
 
   return (
     <main className="bg-purple-radial h-screen">
@@ -66,6 +78,12 @@ export function CreateAccountOrLogin()
                 alt="Wellness Journal full logo"
               />
             </div> 
+
+            {actionData?.error && (
+              <div className='text-error-primary bg-error-secondary p-3 rounded mt-4 mb-4'>
+                {actionData.error}
+              </div>
+            )}
 
             <ToggleSwitch onClick={handleShowLoginToggle} toggledOn={showLogin} className='my-8' option1='Create account' option2='Login'/>
 
