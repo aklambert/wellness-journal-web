@@ -13,7 +13,7 @@ const Input = ({label, type, className}: {label: string, type: string, className
     return (
        <div className={`${className} flex flex-row w-fit`}>
             <label className="text-secondary flex">
-                <input type={type} className="me-2"/>
+                <input type={type} className="me-2" name={label.toLowerCase().replace(' ', '-')} />
                 {label}
             </label>
        </div>

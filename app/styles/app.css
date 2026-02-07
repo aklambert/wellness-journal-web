@@ -15,6 +15,10 @@
   --color-545454: #545454;
   --color-333333: #333333;
 
+  --color-error-primary: #DB373D;
+  --color-error-secondary: #FAD6D7;
+
+
   /* --- Custom Background colors --- */
   --bg-purple-radial-glow: radial-gradient(circle, #763DFF 0%, #4D33CB 33%, #242998 100%);
 }
