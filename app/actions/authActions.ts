@@ -15,15 +15,22 @@ export async function authAction({ request }: { request: Request })
   const email = formData.get("email") ?? "";
   const password = formData.get("password") ?? "";
   const isLogin = formData.get("isLogin") === "true";
+  
+  const port = process.env.NODEPORT;
+  if (!port)
+  {
+    return { error: "Server configuration error: undefined port" };
+  }
 
   const endpoint = isLogin ? "/api/login" : "/api/signup";
+  const url = `http://localhost:${port}${endpoint}`;
 
   try
   {
-    const response = await fetch(`http://localhost:${process.env.NODEPORT || 3001}${endpoint}`, {
+    const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password })
     });
 
     if (!response.ok) 
