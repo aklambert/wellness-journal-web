@@ -77,17 +77,17 @@ export function CreateAccountOrLogin()
                 src={wellnessJournalFullLogo}
                 alt="Wellness Journal full logo"
               />
-            </div> 
-
-            {actionData?.error && (
-              <div className='text-error-primary bg-error-secondary p-3 rounded mt-4 mb-4'>
-                {actionData.error}
-              </div>
-            )}
+            </div>
 
             <ToggleSwitch onClick={handleShowLoginToggle} toggledOn={showLogin} className='my-8' option1='Create account' option2='Login'/>
 
             <h1>{showLogin? 'Login' : 'Create Account'}</h1>
+
+             {actionData?.error && (
+              <div className='text-error-primary p-3 rounded mt-4 mb-4'>
+                {actionData.error}
+              </div>
+            )}
 
             <TextInput label='email' type="email" placeholder='Enter your email' />
             <PasswordInput feedback={`${showLogin ? '' : 'Enter a password of at least 15 characters'}`} label="Password" placeholder={`${showLogin ? 'Enter' : 'Create'} your password`} />
