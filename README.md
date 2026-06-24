@@ -1,5 +1,5 @@
 # Wellness Journal Web
-This is a web version of the [Wellness Journal](https://github.com/aklambert/Wellness-Journal) Android app. 
+This is a web version of the [Wellness Journal](https://github.com/aklambert/Wellness-Journal) Android app, that is still a work in progress. 
 
 Wellness Journal is an app that has fitness features, journaling features, and a timer. It is meant to be an app that has both finess and journaling features in one app to help people track both their physical and mental health. 
 
