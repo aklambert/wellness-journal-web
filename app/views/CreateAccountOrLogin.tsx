@@ -15,6 +15,9 @@ import Button from '~/components/Button';
 import { useState, useEffect } from 'react';
 import { Form, useActionData } from 'react-router';
 
+// Utils
+import { validateStrongPassword }   from '../utils/validation';
+
 /**
  * Page showing either the create account or login form, depending on 
  * toggle switch selection
@@ -31,6 +34,28 @@ export function CreateAccountOrLogin()
   {
     setShowLogin(!showLogin);
   }
+
+  // Handle form submission
+  const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>): void =>
+  {
+    event.preventDefault();
+    const passwordInput = event.currentTarget.querySelector<HTMLInputElement>('input[name="password"]');
+
+    if (passwordInput) 
+    {
+      // Validate strength of new passwords
+      if (!showLogin)
+      {
+        const result = validateStrongPassword(passwordInput.value);
+
+        if (!result.valid) 
+        {
+          alert(result.message || 'Password is not strong enough.');
+          return;
+        }
+      }
+    }
+  } 
 
   // Handle successful login - store token and redirect
   useEffect(() => {
@@ -70,7 +95,7 @@ export function CreateAccountOrLogin()
 
         {/* Column 2 */}
         <div className="flex flex-col md:justify-center items-center bg-slight-transparent">
-          <Form method="post" className={` ${showLogin ? 'login' : 'create-account'}`}>
+          <Form method="post" className={` ${showLogin ? 'login' : 'create-account'}`} onSubmit={handleSubmit}>
             <div className='flex w-full'>
               <img
                 className='hidden md:block'
@@ -83,7 +108,7 @@ export function CreateAccountOrLogin()
 
             <h1>{showLogin? 'Login' : 'Create Account'}</h1>
 
-             {actionData?.error && (
+            {actionData?.error && (
               <div className='text-error-primary p-3 rounded mt-4 mb-4'>
                 {actionData.error}
               </div>

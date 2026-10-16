@@ -24,7 +24,7 @@ function exampleSubtract(a, b) {
   return a - b;
 }
 
-module.exports = {
+export default {
   exampleSum,
   exampleSubtract
 }
