@@ -6,6 +6,10 @@ import { IconLock } from "@tabler/icons-react";
 // React
 import { useState, useEffect } from "react";
 
+// Utils
+import { validateStrongPassword }   from '../../utils/validation';
+
+
 /**
  * Show a password input component
  * 
@@ -32,6 +36,26 @@ const PasswordInput = ({label, placeholder, feedback}: {label: string, placehold
         setCapsLockOn(event.getModifierState("CapsLock")); 
     }
 
+    // Eevent handler for when the password input loses focus
+    const handleBlur = (event: React.FocusEvent<HTMLInputElement>) =>
+    {
+        let feedbackColor = "error-primary";
+        const result = validateStrongPassword(event.target.value);
+        const parentElement = event.currentTarget.parentElement;
+
+        feedbackColor = result.valid ? "success-primary" : "error-primary";
+
+        // Update the box shadow color of the parent element based on the validation result
+        if (parentElement)
+        {
+            parentElement.style.boxShadow = `0 0 8px var(--color-${feedbackColor})`;
+        }
+
+        // Update the feedback text color based on the validation result
+        document.querySelector(`.input-feedback`)?.classList.remove("text-success-primary", "text-error-primary");
+        document.querySelector(`.input-feedback`)?.classList.add(`text-${feedbackColor}`);
+    }
+
     // Listen for when the caps lock key is pressed, to show the lock icon when caps lock is on
     useEffect(() =>
     {
@@ -50,12 +74,12 @@ const PasswordInput = ({label, placeholder, feedback}: {label: string, placehold
             <label className="flex flex-col text-secondary">
                 {label}
                 <div className="mt-2 flex textbox items-center rounded select-none relative bg-white">
-                    <input type={`${showPassword? 'text' : 'password'}`} placeholder={placeholder} className="p-4 w-sm me-10 rounded text-black h-12 password" name={label.toLowerCase().replace(' ', '-')} />
+                    <input autoComplete="current-password" type={showPassword ? "text" : "password"} placeholder={placeholder} className="p-4 w-sm me-10 rounded text-black h-12 password" name={label.toLowerCase().replace(' ', '-')} onBlur={handleBlur}/>
                     {capsLockOn ? <IconLock className="password-capslock"/> : ''}
                     {showPassword ? <IconEye className="password-eye eye-open" onClick={handleShowPassword}/> : <IconEyeClosed onClick={handleShowPassword} className="password-eye eye-closed" />}
                 </div>
             </label>
-            <div className="input-feedback mt-2 text-545454">{feedback}</div>
+            <div className={`input-feedback mt-2 text-545454`}>{feedback}</div>
        </div>
     );
 };
